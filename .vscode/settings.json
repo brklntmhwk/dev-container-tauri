@@ -1,0 +1,20 @@
+{
+  "cSpell.words": [
+    "azuretools",
+    "clippy",
+    "devcontainers",
+    "fullscreen",
+    "icns",
+    "mutantdino",
+    "resourcemonitor",
+    "rustc",
+    "serayuzgur",
+    "tamasfe",
+    "vadimcn"
+  ],
+  "search.exclude": {
+    "**/target": true
+  },
+  "lldb.verboseLogging": true,
+  "lldb.launch.initCommands": ["settings set target.disable-aslr false"]
+}

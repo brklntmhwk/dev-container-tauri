@@ -1,0 +1,44 @@
+// https://github.com/microsoft/vscode-dev-containers/blob/v0.245.2/containers/rust-postgres/.devcontainer/devcontainer.json
+
+{
+  "name": "tauri-container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "tauri_app",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "init": true,
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite": {
+      "version": "latest",
+      "noVncVersion": "1.2.0",
+      "password": "vscode",
+      "webPort": "6080",
+      "vncPort": "5901"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "lldb.executable": "/usr/bin/lldb",
+        "files.watcherExclude": {
+          "**/target/**": true
+        },
+        "rust-analyzer.checkOnSave.command": "clippy"
+      },
+      "extensions": [
+        "tauri-apps.tauri-vscode",
+        "ms-azuretools.vscode-docker",
+        "vadimcn.vscode-lldb",
+        "mutantdino.resourcemonitor",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
+        "serayuzgur.crates"
+      ]
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [5432, 6080]
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "rustc --version",
+}
