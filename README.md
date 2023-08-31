@@ -1,6 +1,7 @@
 # Dev Container for Tauri
 
-This is a playground for Tauri app development. You can leverage the hot loading feature of Tauri dev display inside the Docker container.
+This is a playground for Tauri app development. ~~You can leverage the hot reloading feature of Tauri dev display inside the Docker container.~~
+**At the moment, Neither hot reloading nor even reloading work properly on the VNC display in the container, and the cause is still under investigation.**
 
 ## Prerequisites
 
@@ -20,7 +21,7 @@ on your local machine.
 1. Run your Docker Desktop
 2. Create the docker image and run the container
 
-- Select the menu "Dev Containers: Reopen in Container". (on Windows, press Ctrl + Shift + p or F1 to open the dropdown menu)
+- Select the menu "Dev Containers: Reopen in Container".
 - You could also select "Reopen in Container" in a pop-up toaster that appears at the bottom right on VSCode when opening
   - ![Dev Containers pop-up toaster](screenshots/dev-container-toaster.jpg)
 
@@ -64,5 +65,5 @@ yarn tauri dev
   - http://localhost:6080/
 - Connect to noVNC with the password set in devcontainer.json
   - ![noVNC Connect](screenshots/novnc.png)
-- Now all done!
+- Now all done!(**but reloading doesn't work..**)
   - ![noVNC after connection](screenshots/novnc-dev.jpg)

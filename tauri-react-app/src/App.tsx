@@ -8,14 +8,12 @@ function App() {
   const [name, setName] = useState("");
 
   async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     setGreetMsg(await invoke("greet", { name }));
   }
 
   return (
     <div className="container">
-      <h1>Welcome to Tauri in Docker Dev Container!!!!!!!!</h1>
-
+      <h1>Welcome to Tauri in Docker Dev Container</h1>
       <div className="row">
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo vite" alt="Vite logo" />
