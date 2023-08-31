@@ -1,7 +1,8 @@
 # Dev Container for Tauri
 
-This is a playground for Tauri app development. ~~You can leverage the hot reloading feature of Tauri dev display inside the Docker container.~~
-**At the moment, Neither hot reloading nor even reloading work properly on the VNC display in the container, and the cause is still under investigation.**
+This is a playground for Tauri app development. You can leverage the hot reloading feature of Tauri dev display inside the Docker container.
+**~~At the moment, Neither hot reloading nor even reloading work properly on the VNC display in the container, and the cause is still under investigation.~~**
+→ On Windows, using WSL2(Windows Subsystem for Linux 2) resolved the problem and also saved a large amount of time when building and running Docker container and compiling Rust backend.
 
 ## Prerequisites
 

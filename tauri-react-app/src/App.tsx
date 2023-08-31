@@ -26,7 +26,7 @@ function App() {
         </a>
       </div>
 
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      <p>Click on the Tauri, Vite, and React logos to learn.</p>
 
       <form
         className="row"
