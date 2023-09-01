@@ -7,13 +7,13 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug executable",
+      "name": "Tauri Dev Debug 'tauri-example'",
       "cargo": {
         "args": [
           "build",
-          "--bin=hello_remote_world",
-          "--package=hello_remote_world",
-          "--manifest-path=test-project/Cargo.toml"
+          "--bin=tauri-example",
+          "--package=tauri-example",
+          "--manifest-path=./src-tauri/Cargo.toml"
         ],
         "filter": {
           "kind": "bin"
@@ -24,13 +24,13 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug Test",
+      "name": "Tauri Test Debug 'tauri-example'",
       "cargo": {
         "args": [
           "test",
           "--test",
           "*",
-          "--manifest-path=test-project/Cargo.toml"
+          "--manifest-path=./src-tauri/Cargo.toml"
         ],
         "filter": {
           "kind": "test"

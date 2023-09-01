@@ -1,21 +1,31 @@
 # Dev Container for Tauri
+---
+![noVNC hot reload](screenshots/hot-reloading.gif)
 
-This is a playground for Tauri app development. You can leverage the hot reloading feature of Tauri dev display inside the Docker container.
-**~~At the moment, Neither hot reloading nor even reloading work properly on the VNC display in the container, and the cause is still under investigation.~~**
-→ On Windows, using WSL2(Windows Subsystem for Linux 2) resolved the problem and also saved a large amount of time when building and running Docker container and compiling Rust backend.
+This is a playground for [Tauri](https://tauri.app/) app development. You can leverage the hot reloading feature of Tauri(or rather Vite?) inside the Docker container.
+~~At the moment, Neither hot reloading nor even reloading work properly on the VNC display in the container, and the cause is still under investigation.~~
+→ On Windows, using WSL2(Windows Subsystem for Linux 2) resolved the problem and also saved a large amount of time at building containers and compiling Rust backend.
+
+Keywords:
+- Windows, WSL2, Linux, VS Code, Dev Containers, Docker, Tauri, Vite, Rust, React, TypeScript
 
 ## Prerequisites
 
 - You have installed:
 
   - Docker Desktop
-  - VSCode
+  - VS Code
 
 on your local machine.
 
-- You have added the following VSCode extensions:
-  - Dev Containers
+- You have added the following VS Code extensions:
+  - Dev Containers([Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) for Windows users instead)
   - Docker
+
+## Notes
+
+- It's unclear whether this works properly on Mac OS
+- If you use Windows PC, then use WSL2, otherwise hot reloading cannot fire, which leads to tremendous inconvenience
 
 ## How to use
 
@@ -23,11 +33,11 @@ on your local machine.
 2. Create the docker image and run the container
 
 - Select the menu "Dev Containers: Reopen in Container".
-- You could also select "Reopen in Container" in a pop-up toaster that appears at the bottom right on VSCode when opening
+- You could also select "Reopen in Container" in a pop-up toaster that appears at the bottom right on VS Code when opening
   - ![Dev Containers pop-up toaster](screenshots/dev-container-toaster.jpg)
 
 3. Create your Tauri app template
-
+\* **Skip this if you use the existing tauri-example or git clone other repos**
 - Execute the command:
 
 ```
@@ -35,12 +45,12 @@ yarn create tauri-app
 ```
 
 - Follow the prompts and choose your preferences
-  - In this example, chose the followings:
-    - Project name: tauri-react-app
-    - Choose which language to use for your frontend: TypeScript / JavaScript
-    - Choose your package manager: yarn
-    - Choose your UI template: React
-    - Choose your UI flavor: TypeScript
+  - In tauri-example, they are the followings:
+    - Project name: *tauri-example*
+    - Choose which language to use for your frontend: *TypeScript / JavaScript*
+    - Choose your package manager: *yarn*
+    - Choose your UI template: *React*
+    - Choose your UI flavor: *TypeScript*
 
 4. Move to the project directory
 
@@ -57,6 +67,7 @@ yarn
 6. Open a dev browser
 
 - Execute the command:
+\* **It could take some minutes the first time because of having to building backend. Later, it would be much faster by using cache.**
 
 ```
 yarn tauri dev
@@ -64,7 +75,7 @@ yarn tauri dev
 
 - Open localhost:6080 (the port number is defined in devcontainer.json)
   - http://localhost:6080/
-- Connect to noVNC with the password set in devcontainer.json
+- Connect to noVNC with the password set in devcontainer.json ("VS Code" in this example)
   - ![noVNC Connect](screenshots/novnc.png)
-- Now all done!(**but reloading doesn't work..**)
+- Now all taken care of! It automatically detects changes on both frontend and backend and reflects them on the browser by hot reloading.
   - ![noVNC after connection](screenshots/novnc-dev.jpg)

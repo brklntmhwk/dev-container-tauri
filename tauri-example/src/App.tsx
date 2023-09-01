@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Welcome to Tauri in Docker Dev Container</h1>
+      <h1>Hello, world!!!</h1>
       <div className="row">
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo vite" alt="Vite logo" />
