@@ -1,10 +1,10 @@
 [package]
 name = "tauri-example"
 version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+description = "An example Tauri App inside a Docker container"
+authors = ["brklntmhwk"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/brklntmhwk/dev-container-tauri"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -13,9 +13,18 @@ edition = "2021"
 tauri-build = { version = "1.4", features = [] }
 
 [dependencies]
-tauri = { version = "1.4", features = ["shell-open"] }
+axum = { version = "0.6.20", features = ["headers"] }
+dotenv = "0.15.0"
+log = "0.4.20"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+sqlx = { version = "0.7.1", features = [ "runtime-tokio", "tls-native-tls", "postgres", "macros" ] }
+tauri = { version = "1.4", features = ["shell-open"] }
+tokio = { version = "1.32.0", features = ["full"] }
+tower = "0.4.13"
+tower-http = { version = "0.4.3", features = ["full"] }
+tracing = "0.1.37"
+tracing-subscriber = "0.3.17"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem

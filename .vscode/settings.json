@@ -1,20 +1,12 @@
 {
-  "cSpell.words": [
-    "azuretools",
-    "clippy",
-    "devcontainers",
-    "fullscreen",
-    "icns",
-    "mutantdino",
-    "resourcemonitor",
-    "rustc",
-    "serayuzgur",
-    "tamasfe",
-    "vadimcn"
-  ],
+  "lldb.verboseLogging": true,
+  "lldb.launch.initCommands": ["settings set target.disable-aslr false"],
+
+  // To activate rust-analyzer in src-tauri, this is necessary because of it requiring Cargo.toml at the wordplace dir to work properly.
+  // As a workaround for it, you need to designate the path of Cargo.toml so it can make sure where to perform.
+  "rust-analyzer.linkedProjects": ["tauri-example/src-tauri/Cargo.toml"],
+
   "search.exclude": {
     "**/target": true
   },
-  "lldb.verboseLogging": true,
-  "lldb.launch.initCommands": ["settings set target.disable-aslr false"]
 }

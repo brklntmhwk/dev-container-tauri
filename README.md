@@ -1,5 +1,5 @@
 # Dev Container for Tauri
----
+
 ![noVNC hot reload](screenshots/hot-reloading.gif)
 
 This is a playground for [Tauri](https://tauri.app/) app development. You can leverage the hot reloading feature of Tauri(or rather Vite?) inside the Docker container.

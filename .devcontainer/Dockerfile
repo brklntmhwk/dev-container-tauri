@@ -12,7 +12,6 @@ ARG USER_GID=$USER_ID
 
 # Add a non-root user "vscode" if it doesn't exist
 RUN [ $(getent group $USERNAME) ] || groupadd -g $USER_GID $USERNAME \
-# RUN groupadd -g $USER_GID $USERNAME || echo "Group already exists" \
     && useradd -s /bin/bash -u $USER_ID -g $USER_GID -m $USERNAME || echo "User already exists." \
     && apt-get update \
     && apt-get install -y sudo \
@@ -48,7 +47,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN corepack enable npm yarn
 
 # Install tauri-cli (Must-have to do cargo tauri dev, etc..)
-# It took you ages... and yarn create tauri-app automatically installs @tauri-app/cli that could be used instead of tauri-cli so you don't have to install tauri-cli here.
+# It took ages... and **yarn create tauri-app** automatically installs @tauri-app/cli that could be used instead so tauri-cli doesn't have to be installed here.
 # RUN cargo install tauri-cli
 
 USER $USERNAME
