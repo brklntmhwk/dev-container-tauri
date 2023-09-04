@@ -78,4 +78,5 @@ yarn tauri dev
 - Connect to noVNC with the password set in devcontainer.json ("VS Code" in this example)
   - ![noVNC Connect](screenshots/novnc.png)
 - Now all taken care of! It automatically detects changes on both frontend and backend and reflects them on the browser by hot reloading.
+  - \* **It could be tremendously slow when it comes to backend though. In that case, stop dev server during tinkering with backend.**
   - ![noVNC after connection](screenshots/novnc-dev.jpg)
