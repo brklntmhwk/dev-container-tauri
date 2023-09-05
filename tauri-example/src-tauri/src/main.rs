@@ -2,12 +2,14 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 // use anyhow::{Context, Result};
+use dotenvy;
 use serde::{Deserialize, Serialize};
 // use sqlx::postgres::{PgPool, PgPoolOptions};
 use tauri::plugin::TauriPlugin;
 use tauri::{CustomMenuItem, Manager, Menu, MenuItem, Runtime};
 use tauri_plugin_sql::{Builder as TauriSqlBuilder, Migration, MigrationKind, PluginConfig};
 use tauri_plugin_store::Builder as TauriStoreBuilder;
+use tauri_plugin_window_state::Builder as TauriWindowStateBuilder;
 
 #[derive(Serialize)]
 struct Data {
@@ -30,6 +32,7 @@ fn main() {
     tauri::Builder::default()
         .plugin(enable_sql_plugin())
         .plugin(enable_store_plugin())
+        .plugin(enable_window_state_plugin())
         .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -51,4 +54,8 @@ fn enable_sql_plugin<R: Runtime>() -> TauriPlugin<R, Option<PluginConfig>> {
 
 fn enable_store_plugin<R: Runtime>() -> TauriPlugin<R> {
     TauriStoreBuilder::default().build()
+}
+
+fn enable_window_state_plugin<R: Runtime>() -> TauriPlugin<R> {
+    TauriWindowStateBuilder::default().build()
 }
