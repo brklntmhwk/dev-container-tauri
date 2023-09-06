@@ -1,5 +1,4 @@
 // https://github.com/microsoft/vscode-dev-containers/blob/v0.245.2/containers/rust-postgres/.devcontainer/devcontainer.json
-
 {
   "name": "tauri-container",
   "dockerComposeFile": "docker-compose.yml",
@@ -33,13 +32,17 @@
         "mutantdino.resourcemonitor",
         "rust-lang.rust-analyzer",
         "tamasfe.even-better-toml",
-        "serayuzgur.crates"
+        "serayuzgur.crates",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
       ]
     }
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [5432, 6080]
-
+  "forwardPorts": [
+    5432,
+    6080
+  ]
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "rustc --version",
 }

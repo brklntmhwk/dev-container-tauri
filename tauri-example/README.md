@@ -1,7 +1,18 @@
-# Tauri + React + Typescript
+# Tauri example app
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+This is an example app of Tauri. Starting from ```create tauri-app```, some Tauri features have been topped. You can refer to the features section below.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+The abovementioned features are the followings:
+
+### Database
+tauri-plugin-sql
+tauri-plugin-store
+
+### Window state restoration
+tauri-plugin-window-state
+
+### tauri.conf.json
+allowlist
+https://tauri.app/v1/references/configuration-files/
