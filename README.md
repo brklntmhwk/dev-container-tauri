@@ -25,7 +25,7 @@ on your local machine.
 ## Notes
 
 - It's unclear whether this works properly on Mac OS
-- If you use Windows PC, then use WSL2, otherwise hot reloading cannot fire, which leads to tremendous inconvenience
+- **If you use Windows PC, then use WSL2, otherwise hot reloading cannot fire, which leads to tremendous inconvenience**
 
 ## How to use
 
@@ -75,8 +75,15 @@ yarn tauri dev
 
 - Open localhost:6080 (the port number is defined in devcontainer.json)
   - http://localhost:6080/
-- Connect to noVNC with the password set in devcontainer.json ("VS Code" in this example)
+- Connect to noVNC with the password set in devcontainer.json ("vscode" in this example)
   - ![noVNC Connect](screenshots/novnc.png)
 - Now all taken care of! It automatically detects changes on both frontend and backend and reflects them on the browser by hot reloading.
   - \* **It could be tremendously slow when it comes to backend though. In that case, stop dev server during tinkering with backend.**
   - ![noVNC after connection](screenshots/novnc-dev.jpg)
+
+## How to check database connections in a container
+
+Execute the command below
+```
+psql -d db -U postgres
+```

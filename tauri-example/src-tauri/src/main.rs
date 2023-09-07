@@ -42,6 +42,9 @@ fn load_url<R: Runtime>(window: &Window<R>, url: &str) -> tauri::Result<()> {
 
 fn main() {
     tauri::Builder::default()
+        // .setup(|app| {
+        //     let id = app.listen_global("event", handler)
+        // })
         .menu(enable_menu())
         .on_menu_event(menu_handler)
         .plugin(enable_sql_plugin())

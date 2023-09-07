@@ -38,6 +38,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libgtk-3-dev \
     libayatana-appindicator3-dev \
     librsvg2-dev \
+    postgresql \
     && apt-get autoremove -y && apt-get clean -y
 
 # Install Yarn (Must-have to manage frontend packages)
