@@ -4,23 +4,22 @@
 
 This is a playground for [Tauri](https://tauri.app/) app development. You can leverage the hot reloading feature of Tauri(or rather Vite?) inside the Docker container.
 ~~At the moment, Neither hot reloading nor even reloading work properly on the VNC display in the container, and the cause is still under investigation.~~
-→ On Windows, using WSL2(Windows Subsystem for Linux 2) resolved the problem and also saved a large amount of time at building containers and compiling Rust backend.
+→ On Windows, using [WSL2(Windows Subsystem for Linux 2)](https://learn.microsoft.com/ja-jp/windows/wsl/install) resolved the problem and also saved a large amount of time at building containers and compiling Rust backend.
 
 Keywords:
-- Windows, WSL2, Linux, VS Code, Dev Containers, Docker, Tauri, Vite, Rust, React, TypeScript
+- Windows, WSL2, Linux, VS Code, Dev Containers, Docker, Tauri, Vite, Rust, React, TypeScript, PostgreSQL
 
 ## Prerequisites
 
 - You have installed:
 
-  - Docker Desktop
-  - VS Code
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - [VS Code](https://code.visualstudio.com/)
 
 on your local machine.
 
 - You have added the following VS Code extensions:
-  - Dev Containers([Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) for Windows users instead)
-  - Docker
+  - [Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial) ([Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) for Windows users instead)
 
 ## Notes
 
@@ -81,9 +80,15 @@ yarn tauri dev
   - \* **It could be tremendously slow when it comes to backend though. In that case, stop dev server during tinkering with backend.**
   - ![noVNC after connection](screenshots/novnc-dev.jpg)
 
-## How to check database connections in a container
+## How to check database connections via CLI
 
 Execute the command below
 ```
-psql -d db -U postgres
+psql -d db -U postgres -h localhost
 ```
+and then,
+- ```\l``` returns list of databases
+- ```\c ${Name of your database here}``` moves you to the database specified
+- ```\dt``` returns list of relations
+- ```\d ${Name of your database table here}``` returns the definition of the table specified
+- ![psql commands example](screenshots/psql-example.jpg)

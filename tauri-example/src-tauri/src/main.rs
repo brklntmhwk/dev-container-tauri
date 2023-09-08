@@ -1,8 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-// use anyhow::{Context, Result};
 // use dotenvy;
+// use serde::Deserialize;
 use tauri::api::dialog::message;
 use tauri::plugin::TauriPlugin;
 use tauri::{
@@ -13,6 +13,14 @@ use tauri_plugin_sql::{Builder as TauriSqlBuilder, Migration, MigrationKind, Plu
 use tauri_plugin_store::Builder as TauriStoreBuilder;
 use tauri_plugin_window_state::Builder as TauriWindowStateBuilder;
 
+// #[derive(Debug, Deserialize)]
+// struct Note {
+//     note_id: String,
+//     title: String,
+//     content: String,
+//     created_at: String,
+// }
+
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -20,13 +28,13 @@ fn greet(name: &str) -> String {
 }
 
 #[tauri::command]
-async fn open_problem_view<R: Runtime>(handle: AppHandle<R>, problem_id: String, title: String) {
-    let url = format!("/problems/{}", problem_id.clone());
-    if let Some(window) = handle.get_window("problem") {
+async fn open_note_view<R: Runtime>(handle: AppHandle<R>, note_id: String, title: String) {
+    let url = format!("/notes/{}", note_id.clone());
+    if let Some(window) = handle.get_window("note") {
         let _ = load_url(&window, &url);
         let _ = window.set_title(&title);
     } else {
-        WindowBuilder::new(&handle, "problem", tauri::WindowUrl::App(url.into()))
+        WindowBuilder::new(&handle, "note", tauri::WindowUrl::App(url.into()))
             .title(title)
             .menu(Menu::new())
             .always_on_top(true)
@@ -50,7 +58,7 @@ fn main() {
         .plugin(enable_sql_plugin())
         .plugin(enable_store_plugin())
         .plugin(enable_window_state_plugin())
-        .invoke_handler(tauri::generate_handler![greet, open_problem_view])
+        .invoke_handler(tauri::generate_handler![greet, open_note_view])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -58,11 +66,11 @@ fn main() {
 fn enable_sql_plugin<R: Runtime>() -> TauriPlugin<R, Option<PluginConfig>> {
     TauriSqlBuilder::default()
         .add_migrations(
-            "postgres://postgres:postgres@localhost:5432/db",
+            "postgres://postgres:postgres@localhost:5432/postgres",
             vec![Migration {
                 version: 1,
                 description: "Create tables",
-                sql: include_str!("../migrations/202309041539_create_tables.sql"),
+                sql: include_str!("../migrations/202309081706_create_tables.sql"),
                 kind: MigrationKind::Up,
             }],
         )

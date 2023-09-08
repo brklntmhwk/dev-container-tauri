@@ -14,11 +14,13 @@ const GreetMessage = () => {
         }}
       >
         <input
-          id="greet-input"
+          className="p-2.5"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
         />
-        <button type="submit">Greet</button>
+        <button type="submit" className="btn ml-3">
+          Greet
+        </button>
       </form>
       <p>{greetMsg}</p>
     </div>

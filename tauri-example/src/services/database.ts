@@ -4,14 +4,14 @@ import Database from "tauri-plugin-sql-api";
 import { format, parseISO } from "date-fns";
 
 export type Note = {
-  note_id: number;
+  note_id: string;
   title: string;
   content: string;
   created_at: string;
 };
 
 export const connectToDB = async () =>
-  Database.load("postgres://postgres:postgres@localhost:5432/db");
+  Database.load("postgres://postgres:postgres@localhost:5432/postgres");
 
 export const fetchAllNotes = async () => {
   const db = await connectToDB();

@@ -8,6 +8,13 @@ export const greet = async (name: string): Promise<string> => {
   return invoke("greet", { name });
 };
 
+export const openNoteView = async (
+  noteId: DB.Note["note_id"],
+  title: DB.Note["title"]
+) => {
+  await invoke("open_note_view", { noteId, title });
+};
+
 export const fetchAllNotes = async () => {
   const notes = await DB.fetchAllNotes();
 
